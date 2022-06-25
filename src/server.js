@@ -19,14 +19,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/carrefour', async (req, res) => {
-    try {
-        const { data } = await api.get('')
+    return res.send({message: 'Ola gener'})
 
-        return res.json(data)
-    } catch (error) {
-        res.send({error: error.message})
-        
-    }
 })
 
 
