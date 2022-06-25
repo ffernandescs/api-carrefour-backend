@@ -14,7 +14,11 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
+    return res.send({message: 'Ola Mundo'})
+})
+
+app.get('/carrefour', async (req, res) => {
     try {
         const { data } = await api.get('')
 
