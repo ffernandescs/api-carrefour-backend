@@ -15,7 +15,7 @@ app.get('/', async (req, res) => {
 
 app.get('/carrefour', async(req, res) => {
     const lojaProxima = req.query
-    const { data } = await axios(`https://mercado.carrefour.com.br/api/catalog_system/pub/products/search?fq=${lojaProxima}`)
+    const { data } = await axios(`https://mercado.carrefour.com.br/api/catalog_system/pub/products/search?fq=`)
 
     return res.send(data)
 })
