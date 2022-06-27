@@ -4,7 +4,7 @@ const app = express()
 const axios = require('axios')
 
 app.use(cors({
-    origin: ['dashboard.heroku.com']
+    origin: ['api-carrefour.herokuapp.com']
 }))
 
 const PORT = process.env.PORT || 4567 
