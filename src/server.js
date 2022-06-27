@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 4567
 
 // Ira passar informação da loja para pagina inicial, a mesma ja recebe o valor do frontEnd
 
+app.get('/', async (req, res) => {
+    return res.send('Ola Mundo')
+})
+
 app.get('/carrefour', async(req, res) => {
     const lojaProxima = req.query
     const { data } = await axios(`https://mercado.carrefour.com.br/api/catalog_system/pub/products/search?fq=${lojaProxima}`)
