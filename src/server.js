@@ -3,22 +3,25 @@ const express = require('express')
 const app = express()
 const axios = require('axios')
 
-app.use(cors({
-    origin: ['api-carrefour.herokuapp.com']
-}))
+app.use(cors())
 
-const PORT = process.env.PORT || 4567 
+
+const PORT = process.env.PORT || 8000 
+
 
 // Ira passar informação da loja para pagina inicial, a mesma ja recebe o valor do frontEnd
 
-app.get('/carrefour', async(req, res) => {
-    const lojaProxima = req.query
-    const { data } = await axios(`https://mercado.carrefour.com.br/api/catalog_system/pub/products/search?fq=${lojaProxima}`)
-
-    return res.send(data)
-})
 
 // Ira passar informação da Cep para pagina inicial, a mesma ja recebe o valor do frontEnd
+
+app.get('/home', async(req, res) => {
+    const cepStorage = req.query
+    const { data } = await axios(`https://mercado.carrefour.com.br/api/checkout/pub/regions?country=BRA&postalCode=50740080`)
+    return res.json(data)
+})
+
+// Ira passar informação da loja para pagina Lojas, a mesma ja recebe o valor do frontEnd
+
 
 
 
